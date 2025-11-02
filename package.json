@@ -1,0 +1,41 @@
+{
+  "name": "vriksh-ai",
+  "version": "1.0.0",
+  "description": "VrikshAI - Ancient Wisdom. Modern Intelligence. Full-stack plant identification and care platform.",
+  "private": true,
+  "scripts": {
+    "install": "cd web && npm install",
+    "start": "cd web && npm start",
+    "dev": "npm run dev:backend & npm run dev:frontend",
+    "dev:frontend": "cd web && npm start",
+    "dev:backend": "echo '\n⚠️  Backend runs serverless on Vercel. For local testing, use test_service.py\n' && echo 'To test backend locally:' && echo '  cd backend && python test_service.py\n'",
+    "build": "cd web && npm run build",
+    "build:frontend": "cd web && npm run build",
+    "test": "cd web && npm test",
+    "deploy": "vercel --prod",
+    "deploy:preview": "vercel",
+    "vercel-build": "cd web && npm install && npm run build",
+    "clean": "rm -rf web/node_modules web/build .vercel",
+    "reinstall": "npm run clean && npm run install"
+  },
+  "keywords": [
+    "ai",
+    "plants",
+    "ayurveda",
+    "gpt-4",
+    "pwa",
+    "vercel",
+    "react",
+    "python"
+  ],
+  "author": "VrikshAI Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/vriksh-ai"
+  }
+}
