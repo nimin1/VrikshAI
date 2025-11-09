@@ -37,7 +37,7 @@ class VrikshAIService:
         Initialize VrikshAI service with OpenAI API key.
 
         Args:
-            api_key: OpenAI API key for GPT-4o access
+            api_key: OpenAI API key for GPT-5 access
         """
         if not api_key:
             raise ValueError("OpenAI API key is required")
@@ -45,8 +45,8 @@ class VrikshAIService:
         # Set API key in environment for OpenAI client
         os.environ['OPENAI_API_KEY'] = api_key
 
-        # Initialize GPT-4o model (Pydantic AI reads from environment)
-        self.model = OpenAIModel('gpt-4o')
+        # Initialize GPT-5 model (Pydantic AI reads from environment)
+        self.model = OpenAIModel('gpt-5')
 
         # Create specialized agents with structured outputs
         # Note: Pydantic AI v1.9+ uses 'output_type' instead of 'result_type'
