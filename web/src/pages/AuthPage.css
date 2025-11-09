@@ -1,0 +1,189 @@
+/**
+ * AuthPage Styles - Plant App Theme
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+
+.auth-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow: hidden;
+  font-family: 'Oswald', sans-serif;
+}
+
+.auth-page__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #cecece;
+  z-index: 0;
+}
+
+.auth-page__content {
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+  width: 100%;
+}
+
+.auth-page__branding {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.auth-page__logo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 24px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.auth-page__logo:hover {
+  transform: scale(1.05);
+}
+
+.auth-page__app-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  color: #191919;
+  margin: 0 0 8px 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.auth-page__app-name-sanskrit {
+  font-size: 28px;
+  font-weight: 400;
+  color: #11493e;
+  margin: 0 0 16px 0;
+  letter-spacing: 1px;
+}
+
+.auth-page__tagline {
+  font-size: 16px;
+  font-weight: 400;
+  color: #808080;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.auth-page__form-card {
+  background: white;
+  border-radius: 24px;
+  padding: 48px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-page__form-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.16);
+}
+
+.auth-page__form-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #191919;
+  margin: 0 0 32px 0;
+  text-align: center;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.auth-page__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-page__toggle {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.auth-page__toggle p {
+  font-size: 15px;
+  color: #808080;
+  margin: 0;
+  font-weight: 400;
+}
+
+.auth-page__toggle-button {
+  background: none;
+  border: none;
+  color: #11493e;
+  font-weight: 600;
+  margin-left: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 0;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.auth-page__toggle-button::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #11493e;
+  transition: width 0.3s ease;
+}
+
+.auth-page__toggle-button:hover {
+  opacity: 0.7;
+}
+
+.auth-page__toggle-button:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .auth-page {
+    padding: 20px;
+  }
+
+  .auth-page__branding {
+    margin-bottom: 36px;
+  }
+
+  .auth-page__logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+  }
+
+  .auth-page__app-name {
+    font-size: 36px;
+  }
+
+  .auth-page__app-name-sanskrit {
+    font-size: 22px;
+  }
+
+  .auth-page__tagline {
+    font-size: 14px;
+  }
+
+  .auth-page__form-card {
+    padding: 36px 28px;
+  }
+
+  .auth-page__form-title {
+    font-size: 24px;
+  }
+}

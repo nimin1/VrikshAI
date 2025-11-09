@@ -1,0 +1,314 @@
+/**
+ * HomePage Styles - Plant App Theme
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+
+.home-page {
+  min-height: 100vh;
+  background: #cecece;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Oswald', sans-serif;
+}
+
+.home-page__header {
+  background-color: #11493e;
+  color: white;
+  padding: 20px 24px;
+  position: relative;
+}
+
+.home-page__header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-page__header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.home-page__logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+}
+
+.home-page__app-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.home-page__tagline {
+  font-size: 12px;
+  margin: 0;
+  opacity: 0.85;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.home-page__menu-container {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 200;
+}
+
+.home-page__menu-button {
+  background: transparent;
+  border: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.home-page__menu-button:hover {
+  opacity: 0.7;
+}
+
+.home-page__dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  min-width: 160px;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.home-page__dropdown-item {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 14px 18px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #191919;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.3px;
+  transition: background-color 0.2s ease;
+}
+
+.home-page__dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+.home-page__dropdown-item svg {
+  flex-shrink: 0;
+}
+
+.home-page__main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 24px;
+}
+
+.home-page__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-page__welcome {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.home-page__greeting {
+  font-family: 'Oswald', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #191919;
+  margin: 0 0 8px 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.home-page__subtitle {
+  font-size: 15px;
+  color: #808080;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.home-page__features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.home-page__feature-button {
+  width: 100%;
+  border: none;
+  border-radius: 20px;
+  padding: 32px 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.home-page__feature-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.home-page__feature-button--darshan {
+  background: #11493e;
+}
+
+.home-page__feature-button--vana {
+  background: white;
+}
+
+.home-page__feature-button-content {
+  text-align: center;
+}
+
+.home-page__feature-button--darshan .home-page__feature-button-content {
+  color: white;
+}
+
+.home-page__feature-button--vana .home-page__feature-button-content {
+  color: #191919;
+}
+
+.home-page__feature-sanskrit {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 8px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.home-page__feature-button--vana .home-page__feature-sanskrit {
+  color: #11493e;
+}
+
+.home-page__feature-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.home-page__feature-description {
+  font-size: 14px;
+  margin: 0;
+  opacity: 0.85;
+  line-height: 1.4;
+  letter-spacing: 0.3px;
+  font-weight: 400;
+}
+
+.home-page__info {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.home-page__info-card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.home-page__info-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #191919;
+  margin: 0 0 12px 0;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.home-page__info-text {
+  font-size: 14px;
+  color: #808080;
+  line-height: 1.5;
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
+@media (min-width: 768px) {
+  .home-page__features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .home-page__greeting {
+    font-size: 48px;
+  }
+
+  .home-page__subtitle {
+    font-size: 18px;
+  }
+
+  .home-page__feature-name {
+    font-size: 28px;
+  }
+
+  .home-page__feature-sanskrit {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-page__greeting {
+    font-size: 28px;
+  }
+
+  .home-page__subtitle {
+    font-size: 14px;
+  }
+
+  .home-page__feature-button {
+    padding: 36px 24px;
+  }
+
+  .home-page__feature-sanskrit {
+    font-size: 22px;
+  }
+
+  .home-page__feature-name {
+    font-size: 20px;
+  }
+
+  .home-page__logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .home-page__app-name {
+    font-size: 22px;
+  }
+
+  .home-page__info-card {
+    padding: 24px;
+  }
+}

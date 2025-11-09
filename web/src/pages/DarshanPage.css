@@ -1,0 +1,225 @@
+/**
+ * DarshanPage Styles - Plant App Theme
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+
+.darshan-page {
+  min-height: 100vh;
+  background-color: #cecece;
+  font-family: 'Oswald', sans-serif;
+}
+
+.darshan-page__header {
+  background: #11493e;
+  color: #FFFFFF;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.darshan-page__header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.darshan-page__back-button {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  padding: 0;
+  opacity: 0.9;
+}
+
+.darshan-page__back-button:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.darshan-page__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.darshan-page__subtitle {
+  font-size: 15px;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.darshan-page__main {
+  padding: 40px 24px;
+}
+
+.darshan-page__container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.darshan-page__upload {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.darshan-page__upload-icon {
+  font-size: 64px;
+  margin-bottom: 24px;
+}
+
+.darshan-page__upload-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #191919;
+  margin: 0 0 12px 0;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.darshan-page__upload-description {
+  font-size: 15px;
+  color: #808080;
+  margin: 0 0 32px 0;
+}
+
+.darshan-page__upload-hint {
+  font-size: 14px;
+  color: #808080;
+  margin: 16px 0 0 0;
+}
+
+.darshan-page__loading {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.darshan-page__preview {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+  object-fit: contain;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.darshan-page__result {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.darshan-page__result-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.darshan-page__result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.darshan-page__result-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #191919;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.darshan-page__result-scientific {
+  font-size: 18px;
+  font-style: italic;
+  color: #808080;
+  margin: 0 0 4px 0;
+}
+
+.darshan-page__result-sanskrit {
+  font-size: 16px;
+  color: #11493e;
+  margin: 0;
+}
+
+.darshan-page__confidence {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: #11493e;
+  padding: 8px 16px;
+  border-radius: 12px;
+  min-width: 60px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.darshan-page__result-section {
+  margin-bottom: 24px;
+}
+
+.darshan-page__result-section h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #191919;
+  margin: 0 0 12px 0;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.darshan-page__result-section p {
+  font-size: 15px;
+  color: #808080;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.darshan-page__care-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  font-size: 15px;
+  color: #808080;
+}
+
+.darshan-page__care-grid strong {
+  font-family: 'Oswald', sans-serif;
+  color: #191919;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.darshan-page__result-actions {
+  margin-top: 32px;
+}
+
+@media (max-width: 640px) {
+  .darshan-page__title {
+    font-size: 24px;
+  }
+
+  .darshan-page__upload-title {
+    font-size: 20px;
+  }
+
+  .darshan-page__result-title {
+    font-size: 22px;
+  }
+
+  .darshan-page__care-grid {
+    grid-template-columns: 1fr;
+  }
+}

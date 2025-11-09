@@ -1,0 +1,73 @@
+/**
+ * Input Component Styles - Plant App Theme
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+
+.vriksh-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.vriksh-input-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #191919;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.vriksh-input-required {
+  color: #d32f2f;
+  margin-left: 4px;
+}
+
+.vriksh-input {
+  font-family: sans-serif;
+  font-size: 15px;
+  padding: 14px 16px;
+  border: 2px solid #cecece;
+  border-radius: 12px;
+  background-color: white;
+  color: #191919;
+  transition: all 0.2s ease;
+  outline: none;
+  width: 100%;
+}
+
+.vriksh-input::placeholder {
+  color: #808080;
+  font-weight: 400;
+}
+
+.vriksh-input:focus {
+  border-color: #11493e;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(17, 73, 62, 0.1);
+}
+
+.vriksh-input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.vriksh-input--error {
+  border-color: #d32f2f;
+  background-color: #fff5f5;
+}
+
+.vriksh-input--error:focus {
+  border-color: #d32f2f;
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+}
+
+.vriksh-input-error {
+  font-size: 13px;
+  color: #d32f2f;
+  margin-top: -4px;
+  font-weight: 500;
+}

@@ -1,0 +1,153 @@
+/**
+ * Placeholder Page Styles - Plant App Theme
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+
+.placeholder-page {
+  min-height: 100vh;
+  background-color: #cecece;
+  font-family: 'Oswald', sans-serif;
+}
+
+.placeholder-page__header {
+  background: #11493e;
+  color: #FFFFFF;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.placeholder-page__header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.placeholder-page__back-button {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  padding: 0;
+  opacity: 0.9;
+}
+
+.placeholder-page__back-button:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.placeholder-page__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.placeholder-page__subtitle {
+  font-size: 15px;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.placeholder-page__main {
+  padding: 40px 24px;
+}
+
+.placeholder-page__container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.placeholder-page__content {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.placeholder-page__icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+}
+
+.placeholder-page__coming-soon {
+  font-family: 'Oswald', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #191919;
+  margin: 0 0 16px 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.placeholder-page__description {
+  font-size: 16px;
+  color: #808080;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.placeholder-page__features-list {
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto 32px auto;
+  padding: 24px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.placeholder-page__features-list h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #191919;
+  margin: 0 0 16px 0;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.placeholder-page__features-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.placeholder-page__features-list li {
+  font-size: 15px;
+  color: #808080;
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+}
+
+.placeholder-page__features-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #11493e;
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .placeholder-page__title {
+    font-size: 24px;
+  }
+
+  .placeholder-page__icon {
+    font-size: 64px;
+  }
+
+  .placeholder-page__coming-soon {
+    font-size: 24px;
+  }
+
+  .placeholder-page__description {
+    font-size: 16px;
+  }
+}

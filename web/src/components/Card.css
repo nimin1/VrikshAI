@@ -1,0 +1,48 @@
+/**
+ * Card Component Styles - Plant App Theme
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+
+.vriksh-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.vriksh-card--hoverable:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.vriksh-card--clickable {
+  cursor: pointer;
+}
+
+.vriksh-card__header {
+  margin-bottom: 16px;
+}
+
+.vriksh-card__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #191919;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.vriksh-card__subtitle {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  color: #808080;
+  margin: 0;
+}
+
+.vriksh-card__content {
+  color: #808080;
+}

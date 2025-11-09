@@ -1,0 +1,120 @@
+/**
+ * Button Component Styles - Plant App Theme
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+
+.vriksh-button {
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  outline: none;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.vriksh-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Variants */
+.vriksh-button--primary {
+  background: #11493e;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.vriksh-button--primary:hover:not(:disabled) {
+  background: #0d3830;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+}
+
+.vriksh-button--secondary {
+  background-color: white;
+  color: #11493e;
+  border: 2px solid #11493e;
+}
+
+.vriksh-button--secondary:hover:not(:disabled) {
+  background-color: #11493e;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.vriksh-button--outline {
+  background-color: transparent;
+  color: #191919;
+  border: 2px solid #808080;
+}
+
+.vriksh-button--outline:hover:not(:disabled) {
+  background-color: #191919;
+  color: #ffffff;
+  border-color: #191919;
+}
+
+.vriksh-button--danger {
+  background-color: #d32f2f;
+  color: #ffffff;
+}
+
+.vriksh-button--danger:hover:not(:disabled) {
+  background-color: #b71c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+}
+
+/* Sizes */
+.vriksh-button--small {
+  font-size: 14px;
+  padding: 8px 16px;
+}
+
+.vriksh-button--medium {
+  font-size: 16px;
+  padding: 12px 24px;
+}
+
+.vriksh-button--large {
+  font-size: 18px;
+  padding: 16px 32px;
+}
+
+/* Full width */
+.vriksh-button--full-width {
+  width: 100%;
+}
+
+/* Loading state */
+.vriksh-button--loading {
+  cursor: wait;
+}
+
+.vriksh-button__spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #FFFFFF;
+  border-radius: 50%;
+  animation: vriksh-spinner 0.8s linear infinite;
+}
+
+@keyframes vriksh-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

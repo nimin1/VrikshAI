@@ -1,0 +1,67 @@
+/**
+ * VrikshAI Global Styles - Plant App Theme
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Oswald', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #cecece;
+  color: #191919;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #cecece;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #11493e;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0d3830;
+}
+
+/* Toast customization */
+.Toastify__toast {
+  font-family: 'Oswald', sans-serif;
+  border-radius: 12px;
+}
+
+.Toastify__toast--success {
+  background-color: #11493e;
+}
+
+.Toastify__toast--error {
+  background-color: #d32f2f;
+}
+
+.Toastify__toast--warning {
+  background-color: #FFC107;
+}
+
+.Toastify__toast--info {
+  background-color: #11493e;
+}
