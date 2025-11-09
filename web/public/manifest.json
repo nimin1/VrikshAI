@@ -25,9 +25,12 @@
       "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "theme_color": "#2D5016",
-  "background_color": "#F1F8E9",
-  "description": "AI-powered plant identification and care using ancient Ayurvedic wisdom"
+  "orientation": "portrait",
+  "theme_color": "#11493e",
+  "background_color": "#cecece",
+  "description": "AI-powered plant identification and care using ancient Ayurvedic wisdom",
+  "categories": ["lifestyle", "utilities", "education"]
 }
