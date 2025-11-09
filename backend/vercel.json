@@ -1,45 +1,28 @@
 {
-  "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "api/**/*.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "50mb"
-      }
+      "source": "/api/darshan",
+      "destination": "/api/darshan.py"
+    },
+    {
+      "source": "/api/chikitsa",
+      "destination": "/api/chikitsa.py"
+    },
+    {
+      "source": "/api/seva",
+      "destination": "/api/seva.py"
+    },
+    {
+      "source": "/api/vana",
+      "destination": "/api/vana.py"
+    },
+    {
+      "source": "/api/auth/:path*",
+      "destination": "/api/auth.py"
     }
   ],
-  "routes": [
-    {
-      "src": "/api/darshan",
-      "dest": "/api/darshan.py"
-    },
-    {
-      "src": "/api/chikitsa",
-      "dest": "/api/chikitsa.py"
-    },
-    {
-      "src": "/api/seva",
-      "dest": "/api/seva.py"
-    },
-    {
-      "src": "/api/vana",
-      "dest": "/api/vana.py"
-    },
-    {
-      "src": "/api/auth/(.*)",
-      "dest": "/api/auth.py"
-    }
-  ],
-  "env": {
-    "OPENAI_API_KEY": "@openai_api_key",
-    "SUPABASE_URL": "@supabase_url",
-    "SUPABASE_KEY": "@supabase_key",
-    "JWT_SECRET": "@jwt_secret"
-  },
   "functions": {
     "api/**/*.py": {
-      "runtime": "python3.9",
       "maxDuration": 30,
       "memory": 1024
     }
