@@ -100,7 +100,7 @@ export async function login(data: LoginRequest): Promise<AuthResponse> {
   if (typeof responseData === 'string') {
     console.log('api.login - Response is a string, parsing JSON...');
     // Extract JSON from HTTP response string
-    const jsonMatch = responseData.match(/\{.*\}/s);
+    const jsonMatch = (responseData as string).match(/\{.*\}/s);
     if (jsonMatch) {
       responseData = JSON.parse(jsonMatch[0]);
       console.log('api.login - Parsed JSON:', responseData);
@@ -120,7 +120,7 @@ export async function signup(data: SignupRequest): Promise<AuthResponse> {
   // TEMP FIX: If response.data is a string (HTTP response), parse the JSON from it
   let responseData: any = response.data;
   if (typeof responseData === 'string') {
-    const jsonMatch = responseData.match(/\{.*\}/s);
+    const jsonMatch = (responseData as string).match(/\{.*\}/s);
     if (jsonMatch) {
       responseData = JSON.parse(jsonMatch[0]);
     }

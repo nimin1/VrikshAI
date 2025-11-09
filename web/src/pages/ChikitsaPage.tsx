@@ -30,31 +30,26 @@ export default function ChikitsaPage() {
 
       <main className="placeholder-page__main">
         <div className="placeholder-page__container">
-          <Card>
-            <div className="placeholder-page__content">
-              <div className="placeholder-page__icon">🌿</div>
-              <h2 className="placeholder-page__coming-soon">Coming Soon</h2>
-              <p className="placeholder-page__description">
-                AI-powered plant health diagnosis and treatment recommendations.
-                Describe symptoms or upload photos, and receive expert guidance
-                to nurse your plants back to health.
-              </p>
-              <div className="placeholder-page__features-list">
-                <h3>Upcoming Features:</h3>
-                <ul>
-                  <li>Diagnose plant diseases and pests</li>
-                  <li>Get severity assessment and confidence scores</li>
-                  <li>Receive treatment recommendations</li>
-                  <li>Learn natural and chemical remedies</li>
-                  <li>Prevention tips and warning signs</li>
-                  <li>Traditional Ayurvedic plant wisdom</li>
-                </ul>
-              </div>
-              <Button onClick={() => navigate('/')} variant="secondary">
-                Back to Home
-              </Button>
+          <div className="placeholder-page__content">
+            <div className="placeholder-page__icon">🌿</div>
+            <h2 className="placeholder-page__coming-soon">Coming Soon</h2>
+            <p className="placeholder-page__description">
+              AI-powered plant health diagnosis and treatment recommendations.
+              Describe symptoms or upload photos, and receive expert guidance
+              to nurse your plants back to health.
+            </p>
+            <div className="placeholder-page__features-list">
+              <h3>Upcoming Features:</h3>
+              <ul>
+                <li>Diagnose plant diseases and pests</li>
+                <li>Get severity assessment and confidence scores</li>
+                <li>Receive treatment recommendations</li>
+                <li>Learn natural and chemical remedies</li>
+                <li>Prevention tips and warning signs</li>
+                <li>Traditional Ayurvedic plant wisdom</li>
+              </ul>
             </div>
-          </Card>
+          </div>
         </div>
       </main>
     </div>
