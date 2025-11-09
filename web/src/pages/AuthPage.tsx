@@ -3,7 +3,6 @@
  */
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { Strings } from '../constants/strings';
 import Button from '../components/Button';
@@ -13,7 +12,6 @@ import './AuthPage.css';
 type AuthMode = 'login' | 'signup';
 
 export default function AuthPage() {
-  const navigate = useNavigate();
   const { login, signup, loading } = useAuth();
 
   const [mode, setMode] = useState<AuthMode>('login');

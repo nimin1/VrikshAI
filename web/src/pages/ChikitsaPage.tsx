@@ -4,9 +4,6 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Strings } from '../constants/strings';
-import Card from '../components/Card';
-import Button from '../components/Button';
 import './PlaceholderPage.css';
 
 export default function ChikitsaPage() {
