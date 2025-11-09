@@ -2,7 +2,7 @@
  * Authentication Page - Login & Signup
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { Strings } from '../constants/strings';
 import Button from '../components/Button';
@@ -10,6 +10,18 @@ import Input from '../components/Input';
 import './AuthPage.css';
 
 type AuthMode = 'login' | 'signup';
+
+// Extend Window interface for PWA install prompt
+interface BeforeInstallPromptEvent extends Event {
+  prompt: () => Promise<void>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
+}
+
+declare global {
+  interface WindowEventMap {
+    'beforeinstallprompt': BeforeInstallPromptEvent;
+  }
+}
 
 export default function AuthPage() {
   const { login, signup, loading } = useAuth();
@@ -19,8 +31,43 @@ export default function AuthPage() {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+  const [showInstallButton, setShowInstallButton] = useState(false);
 
   const isLogin = mode === 'login';
+
+  // Listen for the PWA install prompt
+  useEffect(() => {
+    const handler = (e: BeforeInstallPromptEvent) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      setShowInstallButton(true);
+    };
+
+    window.addEventListener('beforeinstallprompt', handler);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handler);
+    };
+  }, []);
+
+  async function handleInstallClick() {
+    if (!deferredPrompt) {
+      return;
+    }
+
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+
+    if (outcome === 'accepted') {
+      console.log('User accepted the install prompt');
+    } else {
+      console.log('User dismissed the install prompt');
+    }
+
+    setDeferredPrompt(null);
+    setShowInstallButton(false);
+  }
 
   function validateForm(): boolean {
     const newErrors: { [key: string]: string } = {};
@@ -84,6 +131,29 @@ export default function AuthPage() {
           <h1 className="auth-page__app-name">{Strings.app.name}</h1>
           <p className="auth-page__app-name-sanskrit">{Strings.app.nameSanskrit}</p>
           <p className="auth-page__tagline">{Strings.app.tagline}</p>
+
+          {showInstallButton && (
+            <button
+              onClick={handleInstallClick}
+              className="auth-page__install-button"
+              type="button"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ marginRight: '8px' }}
+              >
+                <path
+                  d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+                  fill="currentColor"
+                />
+              </svg>
+              Install App
+            </button>
+          )}
         </div>
 
         <div className="auth-page__form-card">

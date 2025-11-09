@@ -75,6 +75,37 @@
   letter-spacing: 0.5px;
 }
 
+.auth-page__install-button {
+  margin-top: 24px;
+  padding: 14px 28px;
+  background: #11493e;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(17, 73, 62, 0.2);
+  transition: all 0.3s ease;
+}
+
+.auth-page__install-button:hover {
+  background: #0d3a30;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(17, 73, 62, 0.3);
+}
+
+.auth-page__install-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(17, 73, 62, 0.2);
+}
+
 .auth-page__form-card {
   background: white;
   border-radius: 24px;
