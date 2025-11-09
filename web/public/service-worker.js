@@ -6,8 +6,8 @@
 /* eslint-disable no-restricted-globals */
 
 // Cache names
-const CACHE_NAME = 'vrikshAI-v1';
-const RUNTIME_CACHE = 'vrikshAI-runtime-v1';
+const CACHE_NAME = 'vrikshAI-v2';
+const RUNTIME_CACHE = 'vrikshAI-runtime-v2';
 
 // Assets to cache on install
 const PRECACHE_URLS = [
@@ -64,13 +64,14 @@ self.addEventListener('activate', (event) => {
 
 // Fetch event - serve from cache, fallback to network
 self.addEventListener('fetch', (event) => {
-  // Skip cross-origin requests
+  // Skip cross-origin requests - let browser handle them
   if (!event.request.url.startsWith(self.location.origin)) {
     return;
   }
 
-  // Skip API requests (let them go to network)
+  // Skip API requests - let them go directly to network without caching
   if (event.request.url.includes('/api/')) {
+    event.respondWith(fetch(event.request));
     return;
   }
 
