@@ -1,13 +1,10 @@
 {
   "version": 2,
-  "name": "vriksh-ai",
   "builds": [
     {
       "src": "web/package.json",
       "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
+      "config": { "distDir": "build" }
     },
     {
       "src": "backend/api/**/*.py",
@@ -15,20 +12,14 @@
     }
   ],
   "routes": [
+    { "handle": "filesystem" },
     {
       "src": "/api/(.*)",
       "dest": "backend/api/$1.py"
     },
     {
-      "src": "/(.*\\.(js|css|png|jpg|jpeg|svg|ico|json|txt|webp))",
-      "dest": "web/build/$1"
-    },
-    {
       "src": "/(.*)",
       "dest": "web/build/index.html"
     }
-  ],
-  "env": {
-    "PYTHON_VERSION": "3.9"
-  }
+  ]
 }

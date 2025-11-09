@@ -6,9 +6,9 @@
   "scripts": {
     "install": "cd web && npm install",
     "start": "cd web && npm start",
-    "dev": "npm run dev:backend & npm run dev:frontend",
-    "dev:frontend": "cd web && npm start",
-    "dev:backend": "echo '\n⚠️  Backend runs serverless on Vercel. For local testing, use test_service.py\n' && echo 'To test backend locally:' && echo '  cd backend && python test_service.py\n'",
+    "start:backend": "cd backend && python dev_server.py",
+    "start:frontend": "cd web && npm start",
+    "dev": "echo '\n🌱 Starting VrikshAI Full Stack...\n' && echo '⚠️  Make sure to run these in separate terminals:\n' && echo '  Terminal 1: npm run start:backend' && echo '  Terminal 2: npm run start:frontend\n'",
     "build": "cd web && npm run build",
     "build:frontend": "cd web && npm run build",
     "test": "cd web && npm test",

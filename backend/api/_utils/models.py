@@ -12,17 +12,17 @@ from pydantic import BaseModel, Field, field_validator
 class CareSummary(BaseModel):
     """Quick care summary for a plant."""
 
-    watering: str = Field(
-        description="Watering frequency and amount (e.g., 'Every 7-10 days, 200ml')"
+    water_frequency: str = Field(
+        description="Watering frequency (e.g., 'Every 7-10 days' or 'Twice weekly')"
     )
-    light: str = Field(
-        description="Light requirements (e.g., 'Bright indirect light, 6-8 hours')"
+    sunlight: str = Field(
+        description="Light requirements (e.g., 'Bright indirect light' or 'Full sun, 6-8 hours')"
     )
-    temperature: str = Field(
-        description="Ideal temperature range (e.g., '18-24°C (65-75°F)')"
+    soil_type: str = Field(
+        description="Soil type needed (e.g., 'Well-draining potting mix' or 'Sandy loam')"
     )
-    humidity: str = Field(
-        description="Humidity requirements (e.g., 'Moderate, 40-60%')"
+    difficulty: str = Field(
+        description="Care difficulty level (e.g., 'Easy', 'Moderate', 'Advanced')"
     )
 
 

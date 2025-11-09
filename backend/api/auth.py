@@ -39,6 +39,23 @@ class handler(BaseHTTPRequestHandler):
         self.send_header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
         self.end_headers()
 
+    def do_GET(self):
+        """
+        Handle GET authentication routes.
+
+        Routes:
+            GET /api/auth/verify - Verify JWT token
+        """
+        path = self.path.lower()
+
+        if '/verify' in path:
+            self._handle_verify()
+        else:
+            send_response(self, 404, {
+                'success': False,
+                'error': 'Invalid auth endpoint. Use /verify'
+            })
+
     def do_POST(self):
         """
         Handle authentication routes based on path.
@@ -122,10 +139,16 @@ class handler(BaseHTTPRequestHandler):
             db = get_database()
 
             # Create user with Supabase Auth
+            # Include name in user_metadata so the trigger can use it
             try:
                 auth_response = db.client.auth.sign_up({
                     'email': email,
-                    'password': password
+                    'password': password,
+                    'options': {
+                        'data': {
+                            'name': name
+                        }
+                    }
                 })
 
                 if not auth_response.user:
@@ -143,16 +166,9 @@ class handler(BaseHTTPRequestHandler):
                     return
                 raise
 
-            # Create user record in users table
-            try:
-                db.client.table('users').insert({
-                    'id': user_id,
-                    'email': email,
-                    'name': name
-                }).execute()
-            except Exception as e:
-                logger.error(f"Failed to create user record: {str(e)}")
-                # Continue anyway as auth user is created
+            # User record in users table is automatically created by database trigger
+            # See: backend/schema.sql - handle_new_user() function and on_auth_user_created trigger
+            logger.info(f"User record will be created automatically by database trigger")
 
             # Generate JWT token
             token = generate_token(user_id, email)
@@ -319,4 +335,63 @@ class handler(BaseHTTPRequestHandler):
             send_response(self, 500, {
                 'success': False,
                 'error': 'Token refresh failed. Please login again.'
+            })
+
+    def _handle_verify(self):
+        """
+        Verify JWT token.
+
+        Request headers:
+            Authorization: Bearer <token>
+
+        Response:
+            {
+                "success": true,
+                "user": {
+                    "id": "uuid",
+                    "email": "user@example.com"
+                }
+            }
+        """
+        try:
+            # Verify token
+            try:
+                auth_data = verify_token(self)
+            except Exception as e:
+                logger.warning(f"Token verification failed: {str(e)}")
+                send_response(self, 401, {
+                    'success': False,
+                    'error': str(e)
+                })
+                return
+
+            # Get database connection
+            db = get_database()
+
+            # Get user details from database
+            user_data = db.get_user(auth_data['user_id'])
+
+            if not user_data:
+                send_response(self, 404, {
+                    'success': False,
+                    'error': 'User not found'
+                })
+                return
+
+            send_response(self, 200, {
+                'success': True,
+                'user': {
+                    'id': user_data['id'],
+                    'email': user_data['email'],
+                    'name': user_data['name']
+                }
+            })
+
+            logger.info(f"Token verified for user {auth_data['user_id']}")
+
+        except Exception as e:
+            logger.error(f"Token verification failed: {str(e)}")
+            send_response(self, 500, {
+                'success': False,
+                'error': 'Token verification failed'
             })
