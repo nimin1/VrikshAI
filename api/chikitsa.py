@@ -8,8 +8,13 @@ Requires authentication.
 import json
 import asyncio
 import logging
+import sys
+import os
 from http.server import BaseHTTPRequestHandler
 from typing import Dict, Any
+
+# Add api directory to path for Vercel serverless functions
+sys.path.insert(0, os.path.dirname(__file__))
 
 from _utils.vriksh_ai_service import get_vriksh_ai_service
 from _utils.database import get_database

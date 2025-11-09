@@ -6,8 +6,13 @@ User signup, login, and token refresh.
 
 import json
 import logging
+import sys
+import os
 from http.server import BaseHTTPRequestHandler
 from typing import Dict, Any
+
+# Add api directory to path for Vercel serverless functions
+sys.path.insert(0, os.path.dirname(__file__))
 
 from _utils.database import get_database
 from _utils.auth_middleware import generate_token, verify_token
