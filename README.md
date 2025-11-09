@@ -30,7 +30,7 @@ npm run deploy
 
 ## 🌿 Features
 
-- **AI Darshan (दर्शन)** - Instant plant identification from photos using GPT-4o vision
+- **AI Darshan (दर्शन)** - Instant plant identification from photos using AI
 - **AI Chikitsa (चिकित्सा)** - Health diagnosis and treatment recommendations
 - **Seva (सेवा)** - Personalized care schedules based on location and season
 - **Mera Vana (मेरा वन)** - Digital plant collection manager
@@ -40,6 +40,7 @@ npm run deploy
 ## 🏗️ Tech Stack
 
 ### Frontend (React PWA)
+
 - **Framework:** React 18.3 + TypeScript
 - **Routing:** React Router v6
 - **State:** React Context API
@@ -48,6 +49,7 @@ npm run deploy
 - **PWA:** Installable, offline-ready
 
 ### Backend (Python Serverless)
+
 - **Runtime:** Python 3.9 serverless functions
 - **AI:** Pydantic AI + OpenAI GPT-4o
 - **Database:** Supabase (PostgreSQL)
@@ -55,6 +57,7 @@ npm run deploy
 - **Deployment:** Vercel
 
 ### Infrastructure
+
 - **Hosting:** Vercel (frontend + backend)
 - **Database:** Supabase
 - **CDN:** Vercel Edge Network
@@ -224,12 +227,12 @@ All features use Sanskrit names to honor traditional botanical wisdom:
 
 Set in Vercel Dashboard → Settings → Environment Variables:
 
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `OPENAI_API_KEY` | OpenAI API key for GPT-4o | `sk-proj-...` |
-| `SUPABASE_URL` | Supabase project URL | `https://xxx.supabase.co` |
-| `SUPABASE_KEY` | Supabase anon/public key | `eyJhbGci...` |
-| `JWT_SECRET` | Secret for signing JWT tokens | Random 32+ chars |
+| Variable         | Description                   | Example                   |
+| ---------------- | ----------------------------- | ------------------------- |
+| `OPENAI_API_KEY` | OpenAI API key for GPT-4o     | `sk-proj-...`             |
+| `SUPABASE_URL`   | Supabase project URL          | `https://xxx.supabase.co` |
+| `SUPABASE_KEY`   | Supabase anon/public key      | `eyJhbGci...`             |
+| `JWT_SECRET`     | Secret for signing JWT tokens | Random 32+ chars          |
 
 ### Frontend Configuration
 
