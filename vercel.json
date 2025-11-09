@@ -1,25 +1,17 @@
 {
-  "version": 2,
-  "builds": [
+  "buildCommand": "cd web && npm install && npm run build",
+  "outputDirectory": "web/build",
+  "installCommand": "cd web && npm install",
+  "devCommand": "cd web && npm start",
+  "framework": "create-react-app",
+  "rewrites": [
     {
-      "src": "web/package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "build" }
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
     },
     {
-      "src": "backend/api/**/*.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    { "handle": "filesystem" },
-    {
-      "src": "/api/(.*)",
-      "dest": "backend/api/$1.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "web/build/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
