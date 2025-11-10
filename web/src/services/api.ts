@@ -283,8 +283,8 @@ export function validateImageType(file: File): boolean {
  */
 export async function compressImage(
   file: File,
-  maxWidth: number = 800,
-  quality: number = 0.6
+  maxWidth: number = 1024,
+  quality: number = 0.75
 ): Promise<File> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
