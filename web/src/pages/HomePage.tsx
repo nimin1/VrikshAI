@@ -122,22 +122,21 @@ export default function HomePage() {
 
           <div className="home-page__features">
             {features.map((feature) => (
-              <div key={feature.id} className="home-page__feature">
-                <button
-                  className={`home-page__feature-button home-page__feature-button--${feature.id}`}
-                  onClick={() => navigate(feature.path)}
-                >
-                  <div className="home-page__feature-button-content">
-                    <span className="home-page__feature-sanskrit">
-                      {feature.sanskrit}
-                    </span>
-                    <h3 className="home-page__feature-name">{feature.name}</h3>
-                    <p className="home-page__feature-description">
-                      {feature.description}
-                    </p>
-                  </div>
-                </button>
-              </div>
+              <button
+                key={feature.id}
+                className={`home-page__feature-button home-page__feature-button--${feature.id}`}
+                onClick={() => navigate(feature.path)}
+              >
+                <div className="home-page__feature-button-content">
+                  <span className="home-page__feature-sanskrit">
+                    {feature.sanskrit}
+                  </span>
+                  <h3 className="home-page__feature-name">{feature.name}</h3>
+                  <p className="home-page__feature-description">
+                    {feature.description}
+                  </p>
+                </div>
+              </button>
             ))}
           </div>
 
