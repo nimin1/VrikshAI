@@ -24,8 +24,8 @@ import {
 } from '../types';
 
 // API Configuration
-const API_BASE_URL = process.env.REACT_APP_API_URL ||
-  (process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:3000/api');
+// Use relative URL for API calls - works in both dev (proxied) and production
+const API_BASE_URL = process.env.REACT_APP_API_URL || '/api';
 const API_TIMEOUT = 30000; // 30 seconds
 
 // Token management
@@ -283,8 +283,8 @@ export function validateImageType(file: File): boolean {
  */
 export async function compressImage(
   file: File,
-  maxWidth: number = 1024,
-  quality: number = 0.75
+  maxWidth: number = 512,
+  quality: number = 0.5
 ): Promise<File> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();

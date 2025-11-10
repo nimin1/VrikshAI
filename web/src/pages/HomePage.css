@@ -156,7 +156,7 @@
 .home-page__features {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 12px;
+  gap: 16px;
   margin-bottom: 20px;
 }
 
@@ -164,10 +164,14 @@
   width: 100%;
   border: none;
   border-radius: 20px;
-  padding: 32px 24px;
+  padding: 56px 32px;
+  min-height: 240px;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-page__feature-button:hover {
@@ -197,8 +201,8 @@
 
 .home-page__feature-sanskrit {
   display: block;
-  font-size: 24px;
-  margin-bottom: 8px;
+  font-size: 36px;
+  margin-bottom: 12px;
   font-weight: 400;
   letter-spacing: 0.5px;
 }
@@ -209,18 +213,18 @@
 
 .home-page__feature-name {
   font-family: 'Oswald', sans-serif;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 600;
-  margin: 0 0 8px 0;
+  margin: 0 0 12px 0;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .home-page__feature-description {
-  font-size: 14px;
+  font-size: 16px;
   margin: 0;
   opacity: 0.85;
-  line-height: 1.4;
+  line-height: 1.5;
   letter-spacing: 0.3px;
   font-weight: 400;
 }
@@ -258,7 +262,7 @@
 @media (min-width: 768px) {
   .home-page__features {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 24px;
   }
 
   .home-page__greeting {
@@ -269,12 +273,21 @@
     font-size: 18px;
   }
 
+  .home-page__feature-button {
+    min-height: 280px;
+    padding: 64px 40px;
+  }
+
   .home-page__feature-name {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .home-page__feature-sanskrit {
-    font-size: 32px;
+    font-size: 42px;
+  }
+
+  .home-page__feature-description {
+    font-size: 18px;
   }
 }
 
@@ -288,15 +301,20 @@
   }
 
   .home-page__feature-button {
-    padding: 36px 24px;
+    padding: 48px 28px;
+    min-height: 220px;
   }
 
   .home-page__feature-sanskrit {
-    font-size: 22px;
+    font-size: 30px;
   }
 
   .home-page__feature-name {
-    font-size: 20px;
+    font-size: 24px;
+  }
+
+  .home-page__feature-description {
+    font-size: 15px;
   }
 
   .home-page__logo {

@@ -3,12 +3,18 @@
   "version": "1.0.0",
   "description": "VrikshAI - Ancient Wisdom. Modern Intelligence. Full-stack plant identification and care platform.",
   "private": true,
+  "type": "module",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.80.0",
+    "dotenv": "^17.2.3",
+    "jsonwebtoken": "^9.0.2",
+    "openai": "^4.75.0"
+  },
   "scripts": {
     "install": "cd web && npm install",
     "start": "cd web && npm start",
-    "start:backend": "cd backend && python dev_server.py",
-    "start:frontend": "cd web && npm start",
-    "dev": "echo '\n🌱 Starting VrikshAI Full Stack...\n' && echo '⚠️  Make sure to run these in separate terminals:\n' && echo '  Terminal 1: npm run start:backend' && echo '  Terminal 2: npm run start:frontend\n'",
+    "dev": "node dev-server.js",
+    "dev:frontend": "cd web && PORT=3001 BROWSER=none npm start",
     "build": "cd web && npm run build",
     "build:frontend": "cd web && npm run build",
     "test": "cd web && npm test",
@@ -37,5 +43,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/yourusername/vriksh-ai"
+  },
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "http-proxy-middleware": "^3.0.5"
   }
 }

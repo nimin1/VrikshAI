@@ -1,29 +1,25 @@
 {
   "buildCommand": "cd web && npm install && npm run build",
   "outputDirectory": "web/build",
-  "installCommand": "cd web && npm install",
+  "installCommand": "npm install && cd web && npm install",
   "devCommand": "cd web && npm start",
   "framework": "create-react-app",
   "rewrites": [
     {
       "source": "/api/darshan",
-      "destination": "/api/darshan.py"
-    },
-    {
-      "source": "/api/chikitsa",
-      "destination": "/api/chikitsa.py"
-    },
-    {
-      "source": "/api/seva",
-      "destination": "/api/seva.py"
-    },
-    {
-      "source": "/api/vana",
-      "destination": "/api/vana.py"
+      "destination": "/api/darshan.js"
     },
     {
       "source": "/api/auth/:path*",
-      "destination": "/api/auth.py"
+      "destination": "/api/auth.js"
+    },
+    {
+      "source": "/api/vana/:id",
+      "destination": "/api/vana.js"
+    },
+    {
+      "source": "/api/vana",
+      "destination": "/api/vana.js"
     },
     {
       "source": "/(.*)",
@@ -31,7 +27,7 @@
     }
   ],
   "functions": {
-    "api/**/*.py": {
+    "api/**/*.js": {
       "maxDuration": 30,
       "memory": 1024
     }
