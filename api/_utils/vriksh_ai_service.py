@@ -9,7 +9,7 @@ with structured outputs via Pydantic AI.
 import os
 import logging
 from typing import Optional
-from pydantic_ai import Agent
+from pydantic_ai import Agent, ImageUrl
 from pydantic_ai.models.openai import OpenAIModel
 
 from .models import DarshanResult, ChikitsaResult, SevaSchedule
@@ -86,9 +86,9 @@ class VrikshAIService:
         try:
             logger.info(f"Starting AI Darshan for image")
 
-            prompt = f"""Analyze this plant image and provide a complete identification.
-
-Image: {image_url}
+            # Use Pydantic AI's ImageUrl to properly pass image to GPT-5 vision
+            result = await self.darshan_agent.run([
+                """Analyze this plant image and provide a complete identification.
 
 Identify the plant species and provide comprehensive information including:
 - Common and scientific names
@@ -99,9 +99,10 @@ Identify the plant species and provide comprehensive information including:
 - Traditional Ayurvedic or cultural uses (if applicable)
 - An interesting fact about this plant
 
-Focus on accuracy over confidence - better to be 70% sure and correct than 95% sure and wrong."""
+Focus on accuracy over confidence - better to be 70% sure and correct than 95% sure and wrong.""",
+                ImageUrl(url=image_url)
+            ])
 
-            result = await self.darshan_agent.run(prompt)
             logger.info(f"AI Darshan completed: {result.output.common_name} "
                        f"(confidence: {result.output.confidence:.2f})")
 
@@ -134,12 +135,10 @@ Focus on accuracy over confidence - better to be 70% sure and correct than 95% s
         try:
             logger.info(f"Starting AI Chikitsa for {plant_name}")
 
-            image_context = f"\nImage showing symptoms: {image_url}" if image_url else ""
-
-            prompt = f"""Diagnose the health issue for this plant and provide a comprehensive treatment plan.
+            prompt_text = f"""Diagnose the health issue for this plant and provide a comprehensive treatment plan.
 
 Plant: {plant_name}
-Symptoms: {symptoms}{image_context}
+Symptoms: {symptoms}
 
 Provide:
 - Clear diagnosis of what's wrong
@@ -156,7 +155,13 @@ Provide:
 
 Be specific and actionable - plant parents need clear steps, not vague advice."""
 
-            result = await self.chikitsa_agent.run(prompt)
+            # Build message list with optional image
+            if image_url:
+                messages = [prompt_text, ImageUrl(url=image_url)]
+            else:
+                messages = prompt_text
+
+            result = await self.chikitsa_agent.run(messages)
             logger.info(f"AI Chikitsa completed: {result.output.diagnosis} "
                        f"(severity: {result.output.severity}, confidence: {result.output.confidence:.2f})")
 
