@@ -35,10 +35,20 @@ export default function DarshanPage() {
       const base64 = await processImageForUpload(file);
       const response = await aiDarshan({ image: base64 });
 
-      setResult(response.result);
+      console.log('AI Response received:', response);
+
+      // Validate response before setting
+      if (response && response.result) {
+        setResult(response.result);
+      } else {
+        console.error('Invalid response format:', response);
+        throw new Error('Invalid response from AI');
+      }
     } catch (error: any) {
       console.error('Darshan error:', error);
       setImagePreview(null);
+      setResult(null);
+      alert(`Failed to identify plant: ${error.message || 'Unknown error'}. Please try again.`);
     } finally {
       setLoading(false);
     }
@@ -173,33 +183,39 @@ export default function DarshanPage() {
                 <div className="darshan-page__result-header">
                   <div>
                     <h2 className="darshan-page__result-title">
-                      {result.common_name}
+                      {result.common_name || 'Unknown Plant'}
                     </h2>
                     <p className="darshan-page__result-scientific">
-                      {result.scientific_name}
+                      {result.scientific_name || 'Scientific name unavailable'}
                     </p>
                     {result.sanskrit_name && (
                       <p className="darshan-page__result-sanskrit">
                         Sanskrit: {result.sanskrit_name}
                       </p>
                     )}
-                    <p className="darshan-page__result-meta">
-                      {result.plant_type} • {result.family}
-                    </p>
+                    {(result.plant_type || result.family) && (
+                      <p className="darshan-page__result-meta">
+                        {result.plant_type && result.plant_type}
+                        {result.plant_type && result.family && ' • '}
+                        {result.family && result.family}
+                      </p>
+                    )}
                   </div>
-                  <div
-                    className="darshan-page__confidence"
-                    style={{
-                      backgroundColor:
-                        result.confidence >= 0.8
-                          ? Colors.status.healthy
-                          : result.confidence >= 0.6
-                          ? Colors.status.warning
-                          : Colors.status.critical,
-                    }}
-                  >
-                    {Math.round(result.confidence * 100)}%
-                  </div>
+                  {result.confidence !== undefined && (
+                    <div
+                      className="darshan-page__confidence"
+                      style={{
+                        backgroundColor:
+                          result.confidence >= 0.8
+                            ? Colors.status.healthy
+                            : result.confidence >= 0.6
+                            ? Colors.status.warning
+                            : Colors.status.critical,
+                      }}
+                    >
+                      {Math.round(result.confidence * 100)}%
+                    </div>
+                  )}
                 </div>
 
                 {/* Health Status */}
