@@ -5,9 +5,9 @@
 
 /* eslint-disable no-restricted-globals */
 
-// Cache names
-const CACHE_NAME = 'vrikshAI-v2';
-const RUNTIME_CACHE = 'vrikshAI-runtime-v2';
+// Cache names - increment version to force cache refresh
+const CACHE_NAME = 'vrikshAI-v3';
+const RUNTIME_CACHE = 'vrikshAI-runtime-v3';
 
 // Assets to cache on install
 const PRECACHE_URLS = [

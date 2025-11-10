@@ -17,7 +17,18 @@ root.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://cra.link/PWA
-serviceWorkerRegistration.register();
+
+// Register service worker with auto-update on new version
+serviceWorkerRegistration.register({
+  onUpdate: (registration) => {
+    // When an update is found, activate it immediately
+    if (registration.waiting) {
+      registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+      // Reload page to get new content
+      window.location.reload();
+    }
+  },
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
